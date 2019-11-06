@@ -1,0 +1,70 @@
+/*Style 'show menu' label button and hide it by default*/
+
+.mobile-menu .show-menu {
+    text-decoration: none;
+    color: #fff;
+    background: rgb(3, 128, 252, .3);
+    text-align: center;
+    padding: 15px 15px;
+    display: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.mobile-menu .show-menu span {
+    padding-left: 25px;
+}
+
+/*Hide checkbox*/
+
+.mobile-menu input[type=checkbox] {
+    display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+
+.mobile-menu input[type=checkbox]:checked~#menu {
+    display: block;
+}
+
+/*Responsive Styles*/
+
+@media screen and (max-width: 800px) {
+    .mobile-menu .lines {
+        border-bottom: 15px double #f8f8f8;
+        border-top: 5px solid #f8f8f8;
+        content: "";
+        height: 5px;
+        width: 20px;
+        padding-right: 15px;
+        float: right;
+    }
+    /*Make dropdown links appear inline*/
+    .mobile-menu ul {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    .mobile-menu li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    .mobile-menu ul li, .mobile-menu li a {
+        width: 100%;
+    }
+    /*Display 'show menu' link*/
+    .mobile-menu .show-menu {
+        display: block;
+    }
+
+    .mobile-menu #menu{
+        padding:10px 0px 5px 0px;
+        height: 220px;
+        z-index: 4;
+        position: relative;
+    }
+
+    header {
+        height:140px;
+    }
+}

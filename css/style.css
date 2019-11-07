@@ -1,8 +1,8 @@
 :root {
-    --header-color: rgb(255, 195, 0);
-    --menu-color: salmon;
-    --menu-color-hover: seagreen;
-    --section-background-color: rgb(3, 128, 252, .3);
+    --color-orange: rgb(255, 195, 0);
+    --color-pink: salmon;
+    --color-green: #5c862e;
+    --color-blue: rgb(3, 128, 252, .3);
 }
 
 body {
@@ -67,15 +67,19 @@ header nav.navbar ul li a {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: var(--menu-color);
+    color: var(--color-pink);
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--color-green);
 }
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: var(--menu-color-hover);
+    color: var(--color-green);
 }
 
 header nav ul li a:hover {
-    color: var(--menu-color-hover);
+    color: var(--color-green);
 }
 
 section.welcome-container {
@@ -86,7 +90,7 @@ section.welcome-container {
     margin: auto;
     margin-top: 200px;
     border-radius: 5px;
-    background-color: var(--section-background-color);
+    background-color: var(--color-blue);
     padding: 10px 20px;
 }
 
@@ -102,7 +106,7 @@ main {
 }
 
 .orange {
-    color: var(--header-color);
+    color: var(--color-orange);
 }
 
 .white {
@@ -127,7 +131,7 @@ main {
 
 footer {
     height: 300px;
-    background-color: var(--section-background-color);
+    background-color: var(--color-blue);
 }
 
 address {
@@ -135,8 +139,50 @@ address {
 }
 
 address a {
-    color: var(--menu-color-hover);
+    color: var(--color-green);
     cursor: pointer;
+}
+
+.box {
+    width: 100%;
+    ;
+    height: 150px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.ticket-tool-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.ticket-tool-flex input {
+    width: 40%;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: right;
+    height: 48px;
+}
+
+.ticket-tool-flex button {
+    width: 48px;
+    height: 48px;
+}
+
+.ticket-text {
+    font-size: 1.1em;
+}
+
+.total-price {
+    color: var(--color-green);
+}
+
+.leave-bar {
+    border: 0;
+    height: 55px;
+    background-image: url('../images/hr.png');
+    background-repeat: no-repeat;
 }
 
 /* mobile css */
@@ -162,7 +208,7 @@ address a {
     footer {
         height: 65px;
         line-height: 60px;
-        background-color: var(--section-background-color);
+        background-color: var(--color-blue);
     }
     address {
         font-size: 10px;
@@ -179,8 +225,12 @@ address a {
 }
 
 .menu-icon:hover {
-    color: var(--menu-color);
+    color: var(--color-green);
     width: 20px;
+}
+
+.btn-success {
+    background-color: var(--color-green);
 }
 
 /* tablet css */

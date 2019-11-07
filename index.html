@@ -21,12 +21,19 @@
     <title>Document</title>
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column sticky-footer-wrapper">
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="compass"
+                    class="svg-inline--fa fa-compass fa-w-16 menu-icon" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 496 512">
+                    <path fill="currentColor"
+                        d="M347.94 129.86L203.6 195.83a31.938 31.938 0 0 0-15.77 15.77l-65.97 144.34c-7.61 16.65 9.54 33.81 26.2 26.2l144.34-65.97a31.938 31.938 0 0 0 15.77-15.77l65.97-144.34c7.61-16.66-9.54-33.81-26.2-26.2zm-77.36 148.72c-12.47 12.47-32.69 12.47-45.16 0-12.47-12.47-12.47-32.69 0-45.16 12.47-12.47 32.69-12.47 45.16 0 12.47 12.47 12.47 32.69 0 45.16zM248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 448c-110.28 0-200-89.72-200-200S137.72 56 248 56s200 89.72 200 200-89.72 200-200 200z">
+                    </path>
+                </svg>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -61,7 +68,7 @@
                 incididunt ut labore et dolore magna aliqua.</p>
         </section>
     </header>
-    <main>
+    <main class="flex-fill">
         <div class="container mt-4">
             <div class="row top">
                 <div class="col-sm-12 col-md-6">
@@ -100,29 +107,33 @@
         </div>
         </div>
     </main>
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto ">
         <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left">
 
             <!-- Grid row -->
-            <div class="row">
+            <div class="row  mt-2">
 
                 <!-- Grid column -->
-                <div class="col-md-6 mt-md-0 mt-3">
+                <div class="col-md-6 col-xs-3">
 
                     <!-- Content -->
-                    <h5 class="text-uppercase">Adres</h5>
-                    <p>Maalderij 37</p>
-                    <p>Maalderij 37</p>
-                    <p>Maalderij 37</p>
+                    <div class="row mx-auto">
+                        <address class="col-6 ">
+                            Maalderij 37<br>
+                            1106 CJ Amstelveen
+                        </address>
+                        <address class="col-6">
+                            <a href="tel:+312016843124" class="">020-16843124</a>
+                        </address>
+                    </div>
 
                 </div>
                 <!-- Grid column -->
 
-                <hr class="clearfix w-100 d-md-none pb-3">
 
                 <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div class="col-md-3 mb-md-0 mb-3 extra-links">
 
                     <!-- Links -->
                     <h5 class="text-uppercase">Links</h5>
@@ -146,7 +157,7 @@
                 <!-- Grid column -->
 
                 <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
+                <div class="col-md-3 mb-md-0 mb-3 extra-links">
 
                     <!-- Links -->
                     <h5 class="text-uppercase">Links</h5>

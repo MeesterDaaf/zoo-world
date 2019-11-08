@@ -18,10 +18,10 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Tickets Zoo - Land</title>
 </head>
 
-<body class="d-flex flex-column sticky-footer-wrapper">
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -39,10 +39,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
 
-                    <li class="nav-item"><a class="nav-link active" href="index.html">home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">home</a></li>
                     <li class="nav-item"><a class="nav-link" href="">over ons</a></li>
                     <li class="nav-item"><a class="nav-link" href="">bestemming</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tickets.html">tickets</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="tickets.html">tickets</a></li>
                     <li class="nav-item"><a class="nav-link" href="">groepen</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -60,51 +60,62 @@
                 </ul>
             </div>
         </nav>
-
-        <section class="welcome-container">
-            <h2 class="welcome orange">Welkom</h2>
-            <h2 class="welcome white">in de jungle</h2>
-            <p class="action-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.</p>
-        </section>
     </header>
     <main class="flex-fill">
-        <div class="container mt-4">
-            <div class="row top">
-                <div class="col-sm-12 col-md-6">
-                    <h3 class="orange">Kom dichter bij</h3>
-                    <h4 orange="black">de wereld van de natuur</h4>
-                    <img src="https://via.placeholder.com/150" alt="" class="img-thumbnail">
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <p class="mt-4" id="uitleg_tekst">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum."</p>
-                </div>
-            </div>
-            <div class="row middle">
-                <div class="col-sm-12 col-md-12">
-                    <h6 class="orange">Onze bestemming</h6>
-                </div>
-            </div>
-            <div class="row bottom front-images">
-                <div class="col-sm-12 col-md-6">
-                    <img src="https://via.placeholder.com/150" alt="">
-                    <img src="https://via.placeholder.com/150" alt="">
-                    <img src="https://via.placeholder.com/150" alt="">
-                    <img src="https://via.placeholder.com/150" alt="">
-                </div>
-                <div class="col-sm-12 col-md-6 bottom-images">
-                    <img src="https://via.placeholder.com/150" alt="">
-                    <img src="https://via.placeholder.com/150" alt="">
-                    <img src="https://via.placeholder.com/150" alt="">
-                    <img src="https://via.placeholder.com/150" alt="">
-                </div>
-            </div>
-        </div>
+        <div class="container d-flex mt-4">
+            <h4 class="mr-3">Kies een kleur</h4>
+            <div class="colors color-red" style="background-color:red" onclick="setColor(this)"></div>
+            <div class="colors color-blue" style="background-color:blue" onclick="setColor(this)"></div>
+            <div class="colors color-green" style="background-color:green" onclick="setColor(this)"></div>
+            <table class="tble-game ml-4">
+                <caption>Vul de vakjes in met de gekozen kleur</caption>
+                <tr>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                </tr>
+                <tr>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                </tr>
+                <tr>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                </tr>
+                <tr>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                </tr>
+                <tr>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                    <td class="cell" onclick="paint(this)"></td>
+                </tr>
+            </table>
+            <div class="colors ml-4" id="gekozenkleur"></div>
         </div>
     </main>
     <footer class="footer mt-auto ">
@@ -127,7 +138,6 @@
                             <a href="tel:+312016843124" class="">020-16843124</a>
                         </address>
                     </div>
-
                 </div>
                 <!-- Grid column -->
 
@@ -186,6 +196,19 @@
         </div>
         <!-- Footer Links -->
     </footer>
+
+    <script>
+        var chosenColor = null;
+        function setColor(element) {
+            chosenColor = window.getComputedStyle(element, null).getPropertyValue("background-color");
+            document.getElementById('gekozenkleur').style.backgroundColor = chosenColor;
+        }
+
+        function paint(elem) {
+            var elements = document.getElementsByClassName('colors');
+            elem.style.backgroundColor = chosenColor;
+        }
+    </script>
 </body>
 
 </html>

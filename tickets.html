@@ -75,18 +75,18 @@
                                         <h5>DAGPAS
                                     </div>
                                     <div class="col mb-4">
-                                        <h5>&euro; <span class="ticket-price">11,00</span></h5>
+                                        <h5>&euro; <span class="ticket-price daily_current_price"></span></h5>
                                     </div>
                                 </div>
                                 <div class="row ticket-tools">
                                     <div class="col">
                                         <div class="form-row ticket-tool-flex">
                                             <button type="submit" class="btn btn-danger"
-                                                onclick="remove_day_pass()">-</button>
+                                                onclick="remove_pass(this)">-</button>
                                             <input type="text" class="form-control" placeholder="0" value="0"
                                                 id="amount_day_pass">
                                             <button type="submit" class="btn btn-success"
-                                                onclick="add_day_pass()">+</button>
+                                                onclick="add_pass(this)">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -99,15 +99,18 @@
                                         <h5>PEUTERPAS</h5>
                                     </div>
                                     <div class="col mb-4">
-                                        <h5>&euro; <span class="ticket-price">5,00</span></h5>
+                                        <h5>&euro; <span class="ticket-price child_current_price"></span></h5>
                                     </div>
                                 </div>
                                 <div class="row ticket-tools">
                                     <div class="col">
                                         <div class="form-row ticket-tool-flex">
-                                            <button type="submit" class="btn btn-danger">-</button>
-                                            <input type="text" class="form-control" placeholder="0">
-                                            <button type="submit" class="btn btn-success">+</button>
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="remove_pass(this)">-</button>
+                                            <input type="text" class="form-control" placeholder="0"
+                                                id="amount_peuter_pass">
+                                            <button type="submit" class="btn btn-success"
+                                                onclick="add_pass(this)">+</button>
                                         </div>
                                     </div>
                                 </div>
@@ -124,34 +127,36 @@
                             <span id="aantal_dag_kaarten" class="font-weight-bold ticket-text">0</span>
                             <span class="x_sign font-weight-bold ticket-text">X</span>
                             <span id="dag_kaart_prijs" class="font-weight-bold ticket-text">
-                                &euro; <span class="ticket-price">11,00</span> :
+                                &euro; <span class="ticket-price daily_current_price" id=""></span> :
                             </span>
                         </div>
                         <div class="col">
                             <span class="x_sign font-weight-bold ticket-text">&euro;</span><span id="totaal_prijs_dag"
-                                class="x_sign font-weight-bold ticket-text">22,00</span>
+                                class="x_sign font-weight-bold ticket-text">0,00</span>
                         </div>
                     </div>
                     <div class="row" id="peuterpas">
                         <h6 class="col-12 mt-4">PEUTERPAS</h6>
                         <div class="col">
-                            <span id="aantal_dag_kaarten" class="font-weight-bold ticket-text">2</span>
+                            <span id="aantal_peuter_kaarten" class="font-weight-bold ticket-text">0</span>
                             <span class="x_sign font-weight-bold ticket-text">X</span>
                             <span id="dag_kaart_prijs" class="font-weight-bold ticket-text">
-                                &euro; <span class="ticket-price">5,00</span> :
+                                &euro; <span class="ticket-price child_current_price" id=""></span> :
                             </span>
                         </div>
                         <div class="col">
-                            <span id="totaal_prijs_dag" class="x_sign font-weight-bold ticket-text">&euro; 10,00</span>
+                            <span class="x_sign font-weight-bold ticket-text">&euro;</span>
+                            <span id="totaal_prijs_peuter" class="x_sign font-weight-bold ticket-text">0,00</span>
                         </div>
                     </div>
                     <hr class="leave-bar">
                     <div class="row" id="peuterpas">
-                        <h4 class="col-6   total-price">Totaal</h4>
+                        <h4 class="col-6 total-price">Totaal</h4>
 
                         <div class="col-6  ">
-                            <span id="totaal_prijs_dag" class="x_sign font-weight-bold ticket-text total-price">&euro;
-                                10,00</span>
+                            <span class="x_sign font-weight-bold ticket-text total-price">&euro;</span>
+                            <span id="totaal_prijs" class="x_sign font-weight-bold ticket-text total-price">
+                                0,00</span>
                         </div>
                     </div>
                 </div>
@@ -175,22 +180,70 @@
     <footer></footer>
 
     <script>
-        var day_price = 11.00;
-        var child_price = 5.00;
 
-        function add_day_pass() {
-            var current_value = document.getElementById('amount_day_pass').value;
+        /* current prices */
+        var day_price = 11.50;
+        var child_price = 5.50;
+        var total_child = 0.00;
+        var total_day = 0.00;
+        document.getElementsByClassName('daily_current_price')[0].innerHTML = day_price.toFixed(2).toString().replace(".", ",");
+        document.getElementsByClassName('daily_current_price')[1].innerHTML = day_price.toFixed(2).toString().replace(".", ",");
+        document.getElementsByClassName('child_current_price')[0].innerHTML = child_price.toFixed(2).toString().replace(".", ",");
+        document.getElementsByClassName('child_current_price')[1].innerHTML = child_price.toFixed(2).toString().replace(".", ",");
+
+
+        function add_pass(pass_type) {
+
+            var ticket_element = pass_type.previousElementSibling.id;
+            var current_value = document.getElementById(ticket_element).value;
             var new_value = Number(current_value) + 1;
-            document.getElementById('amount_day_pass').value = new_value;
-            document.getElementById('aantal_dag_kaarten').innerHTML = new_value;
-            document.getElementById('totaal_prijs_dag').innerHTML = parseFloat(Math.round(new_value * day_price * 100) / 100).toFixed(2).replace(".", ",");;
+            document.getElementById(ticket_element).value = new_value;
+
+            if (ticket_element == "amount_day_pass") {
+                total_day = parseFloat(Math.round(new_value * day_price * 100) / 100).toFixed(2);
+                document.getElementById('aantal_dag_kaarten').innerHTML = new_value;
+                document.getElementById('totaal_prijs_dag').innerHTML = total_day.replace(".", ",");
+            }
+            if (ticket_element == "amount_peuter_pass") {
+                total_child = parseFloat(Math.round(new_value * child_price * 100) / 100).toFixed(2);
+
+                document.getElementById('aantal_peuter_kaarten').innerHTML = new_value;
+                document.getElementById('totaal_prijs_peuter').innerHTML = total_child.replace(".", ",");
+            }
+
+            calculate_basket_price(total_day, total_child);
         }
 
-        function remove_day_pass() {
-            var current_value = document.getElementById('amount_day_pass').value;
+        function remove_pass(pass_type) {
+            var ticket_element = pass_type.nextElementSibling.id;
+            var current_value = document.getElementById(ticket_element).value;
             var new_value = Number(current_value) - 1;
-            document.getElementById('amount_day_pass').value = new_value;
+            if (new_value < 0) {
+                new_value = 0;
+            }
+            document.getElementById(ticket_element).value = new_value;
+
+            if (ticket_element == "amount_day_pass") {
+                total_day = parseFloat(Math.round(new_value * day_price * 100) / 100).toFixed(2);
+                document.getElementById('aantal_dag_kaarten').innerHTML = new_value;
+                document.getElementById('totaal_prijs_dag').innerHTML = total_day.replace(".", ",");
+            }
+            if (ticket_element == "amount_peuter_pass") {
+                total_child = parseFloat(Math.round(new_value * child_price * 100) / 100).toFixed(2);
+
+                document.getElementById('aantal_peuter_kaarten').innerHTML = new_value;
+                document.getElementById('totaal_prijs_peuter').innerHTML = total_child.replace(".", ",");
+            }
+
+            calculate_basket_price(total_day, total_child);
         }
+
+        function calculate_basket_price(total_day, total_child) {
+            var total_basket = (parseFloat(total_day) + parseFloat(total_child)).toFixed(2);
+            document.getElementById('totaal_prijs').innerHTML = total_basket.replace(".", ",");
+        }
+
+
 
     </script>
 </body>

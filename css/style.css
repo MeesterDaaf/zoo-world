@@ -182,7 +182,7 @@ address a {
     border: 0;
     height: 55px;
     background-image: url('../images/hr.png');
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
 }
 
 /* mobile css */

@@ -95,13 +95,18 @@
             </table>
         </div>
         <script>
-            var timer = setInterval(eat, 1000);
             var amount = Number(document.getElementById("food_in_storage").innerHTML);
             var totalStorage = amount;
+            var timer;
+
+            function earthTurning() {
+                timer = setInterval(eat, 500);
+            }
 
             function eat() {
                 var food_in_mouth = Number(document.getElementById("needed_food").innerHTML);
                 amount = amount - food_in_mouth;
+                console.log(amount, food_in_mouth);
                 document.getElementById("food_in_storage").innerHTML = amount;
 
 
@@ -111,10 +116,11 @@
 
             }
 
+
             function buyFood() {
                 document.getElementById("food_in_storage").innerHTML = totalStorage;
                 amount = totalStorage;
-                timer = setInterval(eat, 1000);
+                earthTurning();
             }
 
 

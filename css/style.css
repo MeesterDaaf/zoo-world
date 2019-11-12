@@ -18,9 +18,19 @@ body, .sticky-footer-wrapper {
     flex: 1 1 auto;
 }
 
-header {
+.guests {
     background: url('../images/landscape.jpg');
     height: 500px;
+    background-size: cover;
+    background-position: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.employees {
+    background: url('../images/landscape.jpg');
+    height: 150px;
     background-size: cover;
     background-position: center;
     margin-right: auto;
@@ -189,10 +199,6 @@ address a {
     width: 50px;
     height: 50px;
     border: 1px solid black;
-}
-
-.tble-game {
-    /* width: 100%; */
 }
 
 .tble-game tr, td {

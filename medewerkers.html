@@ -90,9 +90,11 @@
                     <tr>
                         <td>Carnivora (Roofdieren)</td>
                         <td>Canidae (Hondachtigen)</td>
-                        <td><span id="needed_food">1.5</span> kg</td>
+                        <td><span id="needed_food">20</span> kg</td>
                         <td><span id="food_in_storage">100</span> kg</td>
-                        <td><a href="#" class="btn btn-primary" onclick="buyFood();">Update voedsel</a></td>
+                        <td><a href="#" class="btn btn-primary" id="btn-update" onclick="buyFood();"
+                                style="display:none">Update
+                                voedsel</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -115,6 +117,7 @@
 
                 if (amount <= 0) {
                     clearInterval(timer);
+                    document.getElementById("btn-update").style.display = "block";
                 }
 
             }
@@ -122,6 +125,7 @@
 
             function buyFood() {
                 document.getElementById("food_in_storage").innerHTML = totalStorage;
+                document.getElementById("btn-update").style.display = "none";
                 amount = totalStorage;
                 earthTurning();
             }
